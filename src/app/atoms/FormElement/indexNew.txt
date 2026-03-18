@@ -1,0 +1,292 @@
+import React, { useEffect } from "react";
+import {
+  DatePicker,
+  Form,
+  Input,
+  Checkbox,
+  Typography,
+  TimePicker,
+} from "antd";
+import { Controller } from "react-hook-form";
+import Select from "react-select";
+
+const { Text } = Typography;
+
+export const InputField = (props) => {
+  const {
+    fieldname,
+    label,
+    control,
+    iProps,
+    rules,
+    initValue,
+    isRequired,
+    validate,
+    validMessage,
+  } = props;
+
+  useEffect(() => {
+    props.valueGot && props.setValue(fieldname, props.valueGot);
+  }, [props.valueGot]);
+
+  return (
+    <>
+      <Form.Item
+        required={isRequired ? isRequired : false}
+        label={label}
+        validateStatus={validate}
+        help={validMessage}
+      >
+        <Controller
+          name={fieldname}
+          control={control}
+          defaultValue={initValue || initValue == 0 ? initValue : ""}
+          rules={rules}
+          render={({ onBlur, value, onChange }) => (
+            <Input
+              value={value}
+              onChange={onChange}
+              onBlur={props.onBlur}
+              {...iProps}
+            />
+          )}
+        />
+      </Form.Item>
+    </>
+  );
+};
+
+export const InputPassword = (props) => {
+  const {
+    fieldname,
+    label,
+    control,
+    iProps,
+    rules,
+    initValue,
+    isRequired,
+    validate,
+    validMessage,
+  } = props;
+
+  useEffect(() => {
+    props.valueGot && props.setValue(fieldname, props.valueGot);
+  }, [props.valueGot]);
+
+  return (
+    <>
+      <Form.Item
+        required={isRequired ? isRequired : false}
+        label={label}
+        validateStatus={validate}
+        help={validMessage}
+      >
+        <Controller
+          name={fieldname}
+          control={control}
+          defaultValue={initValue || initValue == 0 ? initValue : ""}
+          rules={rules}
+          as={<Input.Password {...iProps} />}
+        />
+      </Form.Item>
+    </>
+  );
+};
+
+export const SelectField = (props) => {
+  const {
+    fieldname,
+    label,
+    control,
+    iProps,
+    rules,
+    selectOption,
+    isRequired,
+    initValue,
+    validate,
+    validMessage,
+  } = props;
+
+  useEffect(() => {
+    props.valueGot && props.setValue(fieldname, props.valueGot);
+  }, []);
+
+  return (
+    <Form.Item
+      required={isRequired ? isRequired : false}
+      label={label}
+      validateStatus={validate}
+      help={validMessage}
+    >
+      <Controller
+        name={fieldname}
+        control={control}
+        rules={rules}
+        defaultValue={initValue ? initValue : ""}
+        render={({ onBlur, value, onChange }) => (
+          <Select
+            value={value}
+            styles={{
+              control: (val) => ({ ...val, minHeight: 32 }),
+              valueContainer: (vcontain) => ({ ...vcontain, padding: "0 8px", textTransform: 'capitalize' }),
+              dropdownIndicator: (icontain) => ({ ...icontain, padding: 5 }),
+              indicatorSeparator: (icontain) => ({
+                ...icontain,
+                backgroundColor: "#fff",
+              }),
+              option: (vcontain) => ({ ...vcontain, textTransform: 'capitalize' }),
+              placeholder: (place) => ({ ...place, color: "rgba(0,0,0,.3)" }),
+            }}
+            onChange={(e) => {
+              onChange(e);
+              props.onChange && props.onChange(e);
+            }}
+            onBlur={props.onBlur}
+            {...iProps}
+            options={selectOption}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 2,
+              colors: { ...theme.colors, primary: "#767676" },
+            })}
+          />
+        )}
+      />
+    </Form.Item>
+    // <Form.Item
+    //   required={isRequired ? isRequired : false}
+    //   label={label}
+    //   validateStatus={validate}
+    //   help={validMessage}
+    //   noStyle={props.noStyle}
+    // >
+    //   {iProps?.placeholder && <Text className="custom-placeholder">{iProps.placeholder}</Text>}
+    //   <Controller
+    //     name={fieldname}
+    //     control={control}
+    //     defaultValue={initValue ? initValue : ""}
+    //     rules={rules}
+    //     as={<Select className="with-place" {...iProps}>{selectOption}</Select>}
+    //   />
+    // </Form.Item>
+  );
+};
+
+export const DateField = (props) => {
+  const {
+    fieldname,
+    label,
+    control,
+    iProps,
+    rules,
+    initValue,
+    isRequired,
+    validate,
+    validMessage,
+  } = props;
+
+  useEffect(() => {
+    props.valueGot && props.setValue(fieldname, props.valueGot);
+  }, []);
+
+  return (
+    <>
+      <Form.Item
+        required={isRequired ? isRequired : false}
+        label={label}
+        validateStatus={validate}
+        help={validMessage}
+      >
+        <Controller
+          name={fieldname}
+          control={control}
+          defaultValue={initValue ? initValue : ""}
+          rules={rules}
+          as={<DatePicker style={{ width: "100%" }} {...iProps} />}
+        />
+      </Form.Item>
+    </>
+  );
+};
+
+export const InputCheckbox = (props) => {
+  const {
+    fieldname,
+    label,
+    control,
+    rules,
+    initValue,
+    isRequired,
+    validate,
+    validMessage,
+  } = props;
+
+  useEffect(() => {
+    props.valueGot && props.setValue(fieldname, props.valueGot);
+  }, []);
+
+  return (
+    <Form.Item
+      required={isRequired ? isRequired : false}
+      validateStatus={validate}
+      help={validMessage}
+      valuePropName="checked"
+      noStyle
+    >
+      <Controller
+        name={fieldname}
+        control={control}
+        rules={rules}
+        defaultValue={initValue ? initValue : ""}
+        render={({ value, onChange }) => {
+          return (
+            <Checkbox
+              className={props.class}
+              checked={value}
+              onChange={(e) => onChange(e.target.checked)}
+            >
+              {label}
+            </Checkbox>
+          );
+        }}
+      />
+    </Form.Item>
+  );
+};
+
+export const TimeField = (props) => {
+  const {
+    fieldname,
+    label,
+    control,
+    iProps,
+    rules,
+    initValue,
+    isRequired,
+    validate,
+    validMessage,
+  } = props;
+
+  useEffect(() => {
+    props.valueGot && props.setValue(fieldname, props.valueGot);
+  }, []);
+
+  return (
+    <>
+      <Form.Item
+        required={isRequired ? isRequired : false}
+        label={label}
+        validateStatus={validate}
+        help={validMessage}
+      >
+        <Controller
+          name={fieldname}
+          control={control}
+          defaultValue={initValue ? initValue : ""}
+          rules={rules}
+          as={<TimePicker style={{ width: "100%" }} {...iProps} />}
+        />
+      </Form.Item>
+    </>
+  );
+};

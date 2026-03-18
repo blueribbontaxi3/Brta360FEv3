@@ -1,0 +1,95 @@
+{
+  "name": "cms-ant-design",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/charts": "^2.2.7",
+    "@ant-design/plots": "^2.3.2",
+    "@antv/util": "^3.3.10",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@hookform/resolvers": "^3.3.1",
+    "@react-google-maps/api": "^2.20.3",
+    "@react-oauth/google": "^0.12.1",
+    "@react-pdf/renderer": "^4.3.0",
+    "@reduxjs/toolkit": "^1.9.7",
+    "@tanstack/react-query": "^5.67.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/filesize": "^4.2.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.52",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-responsive": "^8.0.8",
+    "@types/redux": "^3.6.0",
+    "antd": "^5.23.0",
+    "axios": "^1.5.0",
+    "crypto-js": "^4.1.1",
+    "filesize": "^10.1.6",
+    "firebase": "^10.12.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "pdfjs-dist": "^5.0.375",
+    "plop": "^4.0.0",
+    "pretty-bytes": "^7.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.46.1",
+    "react-pdf": "^10.0.1",
+    "react-redux": "^8.1.2",
+    "react-responsive": "^10.0.0",
+    "react-router-dom": "^6.16.0",
+    "react-to-print": "^3.1.0",
+    "recharts": "^2.13.3",
+    "redux": "^4.2.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.2",
+    "socket.io-client": "^4.8.1",
+    "typescript": "^4.9.5",
+    "uuidv4": "^6.2.13",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.4.0",
+    "zxcvbn": "^4.4.2"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:staging": "vite --mode staging",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "build:staging": "tsc && vite build --mode staging",
+    "preview": "vite preview",
+    "generate": "plop"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.2",
+    "@types/lodash": "^4.14.198",
+    "@types/node": "^20.10.0",
+    "@types/socket.io-client": "^1.4.36",
+    "@types/zxcvbn": "^4.4.5",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.8",
+    "vite-plugin-svgr": "^4.5.0",
+    "vite-tsconfig-paths": "^4.2.2"
+  }
+}

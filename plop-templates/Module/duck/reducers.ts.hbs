@@ -1,0 +1,26 @@
+import { EXAMPLE_CONSTANT } from "./constants";
+import { exampleActions } from "./types";
+import { ExampleModel } from "./model";
+
+const initialState: ExampleModel = {
+  sampleKey: true;
+  sampleKey2: {};
+};
+
+const example = (
+  state: ExampleModel = initialState,
+  action: exampleActions,
+): ExampleModel => {
+  switch (action.type) {
+    case EXAMPLE_CONSTANT: {
+      return {
+        ...state,
+        sampleKey: false,
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export default example;

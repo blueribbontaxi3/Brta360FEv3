@@ -1,0 +1,1 @@
+export const EXAMPLE_CONSTANT: any = "EXAMPLE_CONSTANT";

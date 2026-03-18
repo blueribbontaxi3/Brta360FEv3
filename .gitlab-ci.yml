@@ -1,0 +1,55 @@
+stages:
+  - build
+  - deploy
+
+# =====================
+# BUILD
+# =====================
+build_frontend:
+  stage: build
+  image: node:18
+  script: |
+    npm ci
+    if [ "$CI_COMMIT_BRANCH" = "staging" ]; then
+      npm run build:staging
+    else
+      npm run build
+    fi
+  artifacts:
+    paths:
+      - build/
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+
+# =====================
+# DEPLOY STAGING
+# =====================
+deploy_staging:
+  stage: deploy
+  image: ubuntu:latest
+  before_script:
+    - apt-get update
+    - apt-get install -y rsync sshpass openssh-client
+  script: |
+    sshpass -p "$SERVER_PASSWORD" rsync -avz --delete \
+      -e "ssh -o StrictHostKeyChecking=no" \
+      build/ $SERVER_USER@$SERVER_HOST:/var/www/staging/build/
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+
+# =====================
+# DEPLOY PROD
+# =====================
+deploy_prod:
+  stage: deploy
+  image: ubuntu:latest
+  before_script:
+    - apt-get update
+    - apt-get install -y rsync sshpass openssh-client
+  script: |
+    sshpass -p "$SERVER_PASSWORD" rsync -avz --delete \
+      -e "ssh -o StrictHostKeyChecking=no" \
+      build/ $SERVER_USER@$SERVER_HOST:/var/www/html/build/
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'

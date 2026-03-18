@@ -1,0 +1,42 @@
+:where(.css-dev-only-do-not-override-i0102m).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select,
+:where(.css-dev-only-do-not-override-i0102m).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
+  width: 100%;
+  height: 100%;
+}
+
+:where(.css-dev-only-do-not-override-1eoxb04).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select,
+:where(.css-dev-only-do-not-override-1eoxb04).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
+  width: 100%;
+  min-height: 250px;
+  display: grid;
+}
+
+/* App.css */
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+.workmanComp-dropDown label,
+.officers-select-items label {
+  width: 100%;
+}
+
+.workmanComp-dropDown label {
+  width: 100%;
+}
+
+.hshs{}

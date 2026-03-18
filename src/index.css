@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+:where(.css-dev-only-do-not-override-i0102m).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select,
+:where(.css-dev-only-do-not-override-i0102m).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-detail-list {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.profile-detail-list li {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.profile-detail-list li h4 {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-right: 0.5rem;
+}
+
+.profile-image-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-image-main .ant-upload-wrapper {
+  text-align: center;
+}
+
+.officers-select-items label {
+  width: 100%;
+}
+
+.paceProgram-dropDown label,
+.collision-dropDown label,
+.workmanComp-dropDown label {
+  width: 100%;
+}
+
+.image-card-body .ant-card-body {
+  display: none;
+}
+
+.image-card-body:hover .ant-card-body {
+  display: block;
+}
+
+@media print {
+  @page {
+    size: 240mm 352mm;
+    /* Width: 240mm, Height: 352mm */
+    margin: 0mm;
+    /* Sab margins (top, right, bottom, left) 0 set karo */
+    padding: 0mm;
+    bleed: 0mm;
+    /* Printing ke liye extra */
+    marks: none;
+    /* Crop marks hide karo */
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    /* for better color fidelity */
+  }
+}
+
+.ant-card .ant-card-actions>li>span:hover {
+  cursor: default;
+  color: inherit;
+}

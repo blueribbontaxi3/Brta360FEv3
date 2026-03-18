@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "@atoms/*": [
+                "app/atoms/*"
+            ],
+            "@molecules/*": [
+                "app/molecules/*"
+            ],
+            "@modules/*": [
+                "app/modules/*"
+            ],
+            "@pages/*": [
+                "app/pages/*"
+            ]
+        }
+    }
+}
