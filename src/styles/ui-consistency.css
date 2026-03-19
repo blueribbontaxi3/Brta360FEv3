@@ -1,0 +1,152 @@
+:root {
+  --app-page-max-width: 1440px;
+  --app-section-gap: 16px;
+  --app-radius: 10px;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background: #f5f7fb;
+}
+
+.app-page-shell {
+  width: 100%;
+  max-width: var(--app-page-max-width);
+  margin: 0 auto;
+}
+
+.page-content-surface {
+  padding: 24px;
+  min-height: 360px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+.form-card,
+.table-card {
+  border-radius: 12px;
+}
+
+.form-grid-row {
+  row-gap: 4px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.table-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.table-toolbar .toolbar-item {
+  min-width: 220px;
+  flex: 1 1 220px;
+}
+
+.table-toolbar .toolbar-item.toolbar-item--compact {
+  min-width: 160px;
+  flex: 0 0 auto;
+}
+
+.table-toolbar .toolbar-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ant-form-vertical .ant-form-item {
+  margin-bottom: 18px;
+}
+
+.ant-form-item .ant-form-item-label > label {
+  font-weight: 600;
+}
+
+.ant-card {
+  border-radius: 12px;
+}
+
+.ant-card .ant-card-head {
+  min-height: 56px;
+}
+
+.ant-table-wrapper .ant-table-thead > tr > th {
+  font-weight: 700;
+}
+
+.ant-table-wrapper .ant-table-pagination.ant-pagination {
+  margin-top: 16px;
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-number,
+.ant-picker,
+.ant-select-selector,
+.ant-btn,
+.ant-upload-wrapper {
+  border-radius: 10px !important;
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-number,
+.ant-picker,
+.ant-select-single,
+.ant-btn {
+  min-height: 40px;
+}
+
+.ant-input-number {
+  width: 100%;
+}
+
+.ant-select-single .ant-select-selector {
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+}
+
+.ant-select-single .ant-select-selection-item,
+.ant-select-single .ant-select-selection-placeholder {
+  line-height: 38px !important;
+}
+
+@media (max-width: 768px) {
+  .page-content-surface {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .table-toolbar .toolbar-item,
+  .table-toolbar .toolbar-item.toolbar-item--compact,
+  .table-toolbar .toolbar-actions {
+    width: 100%;
+    min-width: 100%;
+    margin-left: 0;
+  }
+
+  .form-actions {
+    width: 100%;
+    justify-content: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .ant-btn {
+    width: 100%;
+  }
+}

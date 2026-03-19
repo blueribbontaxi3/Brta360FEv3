@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import { Button, Col, Divider, Input, Row, DatePicker, Table, Modal, Select, Flex } from 'antd';
+import { Button, Input, DatePicker, Table, Modal, Select } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { getStatuses } from '../../../utils/helper';
 import { debounce } from 'lodash';
@@ -25,7 +25,6 @@ const AdvanceTable: React.FC<any> = ({
   deleteText,
   isConfirmationShow = true,
   pageSizeOptions,
-  rowJustify = ["start", "end", "center", "space-around", "space-between", "space-evenly"],
   rawSelectionReset,
   onSelectAll,
   onSelectNone,
@@ -89,10 +88,9 @@ const AdvanceTable: React.FC<any> = ({
 
   return (
     <>
-      {/* Filters and Actions */}
-      <Row className="mb-1" gutter={[16, 24]} align="middle" justify={rowJustify}>
+      <div className="table-toolbar">
         {onDelete && (
-          <Col xs={24} sm={6} md={4} lg={2} xl={2}>
+          <div className="toolbar-actions">
             <Button
               type="primary"
               disabled={selectedRowKeys.length === 0}
@@ -107,14 +105,12 @@ const AdvanceTable: React.FC<any> = ({
             >
               {deleteText || 'Delete'}
             </Button>
-          </Col>
+          </div>
         )}
 
         {handleDateRange && (
-          <Col xs={24} sm={12} md={8} lg={8} xl={6}>
-            <Flex gap="16px" wrap="nowrap">
-
-              <RangePicker
+          <div className="toolbar-item">
+            <RangePicker
                 allowClear
                 style={{ width: '100%' }}
                 onChange={handleDateRange}
@@ -123,12 +119,11 @@ const AdvanceTable: React.FC<any> = ({
                 format={'MM-DD-YYYY'}
                 renderExtraFooter={() => rangePickerRenderExtraFooter}
               />
-            </Flex>
-          </Col>
+          </div>
         )}
         {extraFilters}
         {status !== false &&
-          <Col xs={24} sm={12} md={8} lg={4} xl={3}>
+          <div className="toolbar-item toolbar-item--compact">
             <Select
               onChange={handleStatusFilter}
               options={statuses()}
@@ -138,10 +133,10 @@ const AdvanceTable: React.FC<any> = ({
               showSearch
               aria-label="Filter by status"
             />
-          </Col>
+          </div>
         }
         {searchFilter !== false &&
-          <Col xs={24} sm={12} md={8} lg={6}>
+          <div className="toolbar-item">
             <Search
               placeholder="Search..."
               allowClear
@@ -149,11 +144,9 @@ const AdvanceTable: React.FC<any> = ({
               enterButton
               aria-label="Search data"
             />
-          </Col>
+          </div>
         }
-      </Row>
-
-      <Divider />
+      </div>
 
       {/* Table */}
       <Table
@@ -163,12 +156,13 @@ const AdvanceTable: React.FC<any> = ({
         rowSelection={onDelete ? { type: 'checkbox', ...rowSelection, onSelectAll: onSelectAll, onSelectNone: onSelectNone, onSelectInvert: onSelectInvert } : undefined}
         loading={loading}
         pagination={{
-          ...tableParams?.pagination, // Spread existing pagination params if any
+          ...tableParams?.pagination,
+          pageSizeOptions,
           showSizeChanger: true,
           showQuickJumper: true,
-          size: "large",
+          size: 'default',
           showTotal: (total) => `Total ${total} items`,
-          position: ['bottomRight', 'topLeft'],
+          position: ['bottomRight'],
         }}
         onChange={handleTableChange}
         rowKey="id" // Ensure data has unique "id"
