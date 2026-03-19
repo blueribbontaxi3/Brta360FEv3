@@ -1,0 +1,1 @@
+import{j as r}from"./pdf-vendor-2gVHF5ZB.js";import{aq as o}from"./index-q-BBSphu.js";import{u as e}from"./react-vendor-C1lUZuUO.js";import"./antd-vendor-BJwK2mBJ.js";import"./utils-vendor-BW4tSnp5.js";import"./redux-vendor-C5DLR8-_.js";const d=a=>{const t=e();return r.jsx(o,{...a,navigate:t})};export{d as default};

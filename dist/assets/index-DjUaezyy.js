@@ -1,0 +1,1 @@
+import{j as n}from"./pdf-vendor-2gVHF5ZB.js";import{aA as i}from"./index-q-BBSphu.js";import{M as c}from"./antd-vendor-BJwK2mBJ.js";const u=t=>{const{onCancel:s,content:r,title:o,closable:a,open:e,width:l}=t;return n.jsx(c,{centered:!0,maskClosable:!1,closable:a,wrapClassName:"check",open:i(e)?e.visible:e,title:o&&o,footer:null,width:l,onCancel:s,children:r})};export{u as P};

@@ -19,23 +19,22 @@ export default defineConfig({
         port: 3000,
         open: true,
     },
-    build: {
-        outDir: 'build',
+        build: {
+        outDir: 'dist',
         sourcemap: false,
-        // Optimize chunks
         rollupOptions: {
             output: {
-                manualChunks: {
-                    'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-                    'redux-vendor': ['redux', 'react-redux', '@reduxjs/toolkit'],
-                    'antd-vendor': ['antd', '@ant-design/charts', '@ant-design/plots'],
-                    'utils-vendor': ['moment', 'lodash', 'axios'],
-                    'pdf-vendor': ['react-pdf', 'pdfjs-dist'],
-                },
+            manualChunks: {
+                'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+                'redux-vendor': ['redux', 'react-redux', '@reduxjs/toolkit'],
+                'antd-vendor': ['antd', '@ant-design/charts', '@ant-design/plots'],
+                'utils-vendor': ['moment', 'lodash', 'axios'],
+                'pdf-vendor': ['react-pdf', 'pdfjs-dist'],
+            },
             },
         },
         chunkSizeWarningLimit: 1000,
-    },
+        },
     optimizeDeps: {
         include: ['react', 'react-dom', 'antd'],
     },
